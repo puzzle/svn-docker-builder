@@ -1,4 +1,4 @@
-FROM openshift/base-centos7:latest
+FROM openshift/origin-base:latest
 MAINTAINER Daniel Tschan <tschan@puzzle.ch>
 
 RUN yum -y install docker-1.6.2 docker-selinux-1.6.2 subversion; yum clean all
