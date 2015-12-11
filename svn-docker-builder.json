@@ -30,29 +30,6 @@
             }
         },
         {
-            "kind": "Route",
-            "apiVersion": "v1",
-            "id": "${APPLICATION_NAME}-https",
-            "metadata": {
-                "name": "secure-${APPLICATION_NAME}",
-                "labels": {
-                    "application": "${APPLICATION_NAME}"
-                },
-                "annotations": {
-                    "description": "Route for application's https service."
-                }
-            },
-            "spec": {
-                "host": "${APPLICATION_HOSTNAME}",
-                "to": {
-                    "name": "secure-${APPLICATION_NAME}"
-                },
-                "tls": {
-                    "termination": "edge"
-                }
-            }
-        },
-        {
             "apiVersion": "v1",
             "kind": "Service",
             "metadata": {
