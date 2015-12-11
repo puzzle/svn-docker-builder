@@ -24,8 +24,8 @@
             "spec": {
                 "ports": [
                     {
-                        "port": "${HTTP_PORT}",
-                        "targetPort": "${HTTP_PORT}"
+                        "port": 8080,
+                        "targetPort": 8080
                     }
                 ],
                 "selector": {
@@ -135,7 +135,7 @@
                                 "name": "${APPLICATION_NAME}",
                                 "ports": [
                                     {
-                                        "containerPort": "${HTTP_PORT}",
+                                        "containerPort": 8080,
                                         "name": "http",
                                         "protocol": "TCP"
                                     }
@@ -177,11 +177,6 @@
         {
             "name": "APPLICATION_HOSTNAME",
             "description": "Custom hostname for service routes.  Leave blank for default hostname, e.g.: \u003capplication-name\u003e.\u003cproject\u003e.\u003cdefault-domain-suffix\u003e"
-        },
-        {
-            "name": "HTTP_PORT",
-            "description": "The web server's http port.",
-            "value": "8080"
         },
         {
             "name": "SOURCE_REPOSITORY",
