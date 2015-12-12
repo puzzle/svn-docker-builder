@@ -11,4 +11,10 @@ The included template `svn-docker-builder.json` supports the following parameter
   * SOURCE_REPOSITORY: URL of SVN repository. The builder expects to find `Dockerfile` and Docker context in the root directory of the working copy.
   
 ## Usage
-    oc process -f https://raw.githubusercontent.com/puzzle/svn-docker-builder/master/svn-docker-builder.json -v 'APPLICATION_NAME=test,SOURCE_REPOSITORY=https://github.com/puzzle/openshift3-docker-hello.git/branches/svn-docker-builder' | oc create -f -
+    oc process -f https://raw.githubusercontent.com/puzzle/svn-docker-builder/master/svn-docker-builder.json -v 'TEMPLATE_ARGUMENTS' | \
+        oc create -f -
+
+e.g.:
+
+    oc process -f https://raw.githubusercontent.com/puzzle/svn-docker-builder/master/svn-docker-builder.json -v 'APPLICATION_NAME=test,SOURCE_REPOSITORY=https://github.com/puzzle/openshift3-docker-hello.git/branches/svn-docker-builder' | \
+        oc create -f -
