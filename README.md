@@ -18,3 +18,5 @@ e.g.:
 
     oc process -f https://raw.githubusercontent.com/puzzle/svn-docker-builder/master/svn-docker-builder.json -v 'APPLICATION_NAME=test,SOURCE_REPOSITORY=https://github.com/puzzle/openshift3-docker-hello.git/branches/svn-docker-builder' | \
         oc create -f -
+
+This example makes use of the fact that you can checkout GitHub repositories via Subversion.
