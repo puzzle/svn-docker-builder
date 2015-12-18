@@ -203,6 +203,11 @@
             "description": "URL of SVN repository."
         },
         {
+	    "name": "DOCKERFILE",
+	    "description": "Docker Filename, defaults to Dockerfile",
+	    "value": "Dockerfile"
+	},
+        {
             "name": "GENERIC_TRIGGER_SECRET",
             "description": "Generic build trigger secret",
             "generate": "expression",
