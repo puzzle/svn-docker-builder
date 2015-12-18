@@ -30,7 +30,7 @@ if [ -x "${BUILD_DIR}/.d2i/pre_build" ]; then
   "${BUILD_DIR}/.d2i/pre_build" "$BUILD_DIR" "$TAG"
 fi
 
-docker build --rm -t "${TAG}" -f "${DOCKERFILE:-Dockerfile}"  "${BUILD_DIR}"
+docker build --rm -t "${TAG}" -f "${BUILD_DIR}/${DOCKERFILE:-Dockerfile}" "${BUILD_DIR}"
 
 if [[ -d /var/run/secrets/openshift.io/push ]] && [[ ! -e /root/.dockercfg ]]; then
   cp /var/run/secrets/openshift.io/push/.dockercfg /root/.dockercfg
