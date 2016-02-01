@@ -11,12 +11,24 @@ The included template `svn-docker-builder.json` supports the following parameter
   * SOURCE_REPOSITORY: URL of SVN repository. The builder expects to find `Dockerfile` and Docker context in the root directory of the working copy.
   
 ## Usage
-    oc process -f https://raw.githubusercontent.com/puzzle/svn-docker-builder/master/svn-docker-builder.json -v 'TEMPLATE_ARGUMENTS' | \
+
+Register the template on OpenShift:
+
+    oc create -n openshift -f https://raw.githubusercontent.com/puzzle/svn-docker-builder/master/svn-docker-builder.json
+
+Update existing template:
+
+    oc replace -n openshift -f https://raw.githubusercontent.com/puzzle/svn-docker-builder/master/svn-docker-builder.json
+
+Create application based on template:
+
+    oc process -n openshift svn-docker-builder -v 'TEMPLATE_ARGUMENTS' | \
         oc create -f -
 
 e.g.:
 
-    oc process -f https://raw.githubusercontent.com/puzzle/svn-docker-builder/master/svn-docker-builder.json -v 'APPLICATION_NAME=test,SOURCE_REPOSITORY=https://github.com/puzzle/openshift3-docker-hello.git/branches/svn-docker-builder' | \
+    oc process -n openshift svn-docker-builder -f svn-docker-builder -v 'APPLICATION_NAME=test,SOURCE_REPOSITORY=https://github.com/puzzle/openshift3-docker-hello.git/branches/svn-docker-builder' | \
         oc create -f -
 
 This example makes use of the fact that you can checkout GitHub repositories via Subversion.
+
